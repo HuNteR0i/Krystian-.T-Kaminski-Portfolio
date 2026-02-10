@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;600&display=swap');
+
+/* ==================================================
+   GLOBAL / RESET
+================================================== */
+
+* {
+    box-sizing: border-box;
+    transition: 1s;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(128, 123, 123);
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
+}
+
+/* global fonts */
+
+.code_block,
+#text_code,
+pre {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+#menu div p {
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* ==================================================
+   LINKS
+================================================== */
+
+a {
+    text-decoration: none;
+    color: #0091ff;
+}
+
+/* ==================================================
+   SETTINGS / LANGUAGE BUTTONS
+================================================== */
+
+#setting {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-color: white;
+    background-image: url(img/lightmodes.png);
+    background-size: cover;
+    background-position: center;
+    color-scheme: dark;
+}
+
+#lang_butns {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+.lang {
+    border-radius: 15px;
+    background-color: #66c6b2;
+    border: 5px solid black;
+    box-shadow: 0 0 10px rgb(58, 227, 190);
+    cursor: pointer;
+}
+
+/* ==================================================
+   HEADER / FOOTER
+================================================== */
+
+.head_foot {
+    background-color: rgb(25, 25, 25);
+    color: white;
+    padding: 2%;
+}
+
+header {
+    border-bottom: 10px solid rgb(93, 93, 93);
+    border-radius: 0 0 10px 10px;
+}
+
+footer {
+    border-top: 10px solid rgb(93, 93, 93);
+    border-radius: 10px 10px 0 0;
+}
+
+/* ==================================================
+   MENU
+================================================== */
+
+#menu {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(50, 50, 50);
+    border: 10px solid rgb(35, 35, 35);
+    border-radius: 20px;
+}
+
+#menu div {
+    background-color: rgb(25, 25, 25);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgb(58, 227, 190);
+}
+
+#menu div p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid #64f0d2;
+    color: #64f0d2;
+    font-size: 30px;
+    width: 35vh;
+    height: 75px;
+    background-color: black;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ==================================================
+   FOOTER MENU
+================================================== */
+
+#footer_menu {
+    width: 100%;
+    height: 100px;
+    display: flex;  
+    gap: 20px;
+    background-color: rgb(50, 50, 50);
+    border: 10px solid rgb(35, 35, 35);
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+#footer_menu div {
+    margin-left: 20px;
+}
+
+/* ==================================================
+   LAYOUT / CONTAINERS
+================================================== */
+
+.container,
+#skill_container {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+}
+
+/* ==================================================
+   TEXT / CONTENT
+================================================== */
+
+#text {
+    background-color: rgb(185, 185, 185);
+    width: 60%;
+    border-radius: 20px;
+}
+
+#text_code {
+    width: 85%;
+    margin: 40px auto;
+    padding: 30px;
+    background: #111;
+    border: 3px solid #64f0d2;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 0 20px rgb(0, 255, 200);
+}
+
+#info_text {
+    display: grid;
+    font-size: 25px;
+    gap: 25px;
+}
+
+/* code blocks */
+
+.code_block {
+    width: 95%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #222;
+    color: #eee;
+    padding: 15px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.code_block::-webkit-scrollbar {
+    display: none;
+}
+
+/* ==================================================
+   INFO PANEL
+================================================== */
+
+#info {
+    background-color: #71c2b0;
+    width: 30%;
+    border: 5px solid black;
+    box-shadow: 0 0 20px rgb(48, 239, 197);
+    font-size: 25px;
+    border-radius: 0 0 20px 20px;
+}
+
+#info img {
+    width: 100%;
+}
+
+#info_list {
+    border-top: 7px solid black;
+}
+
+#info_li {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* ==================================================
+   BUTTONS (PY / CPP / WEBB)
+================================================== */
+
+#div_py,
+#div_cpp,
+#div_webb {
+    position: relative;
+}
+
+#div_py p,
+#div_cpp p,
+#div_webb p {
+    color: white;
+    font-size: 27px !important;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
+
+/* background gifs */
+
+#div_py::before,
+#div_cpp::before,
+#div_webb::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1;
+}
+
+#div_py::before {
+    background-image: url(img/py_gif.gif);
+    border: 5px solid white;
+    border-radius: 10px;
+}
+
+#div_cpp::before {
+    background-image: url(img/cpp_gif.gif);
+    border: 5px solid white;
+    border-radius: 10px;
+}
+
+#div_webb::before {
+    background-image: url(img/html_gif.gif);
+    border: 5px solid white;
+    border-radius: 10px;
+}
+
+/* active state */
+
+#div_py.active::before,
+#div_cpp.active::before,
+#div_webb.active::before {
+    opacity: 1;
+}
+
+#div_py.active p,
+#div_cpp.active p,
+#div_webb.active p {
+    opacity: 0;
+}
+
+/* ==================================================
+   SKILLS / PROGRESS BARS
+================================================== */
+
+.dev-progress {
+    display: none;
+    opacity: 0;
+}
+
+.dev-progress.active {
+    display: block;
+    opacity: 1;
+}
+
+.skill-btn {
+    padding: 10px 25px;
+    margin: 10px;
+    border-radius: 12px;
+    border: 2px solid #64f0d2;
+    background: black;
+    color: #64f0d2;
+    cursor: pointer;
+    font-family: Orbitron;
+    font-size: 18px;
+    transition: 1s;
+}
+
+.skill-btn.active {
+    background: #64f0d2;
+    color: black;
+    box-shadow: 0 0 15px #64f0d2;
+}
+
+
+.dev-progress {
+    width: 80%;
+    margin: 40px auto;
+    padding: 35px;
+    background: #111;
+    border: 4px solid #64f0d2;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 0 15px rgba(100, 240, 210, 0.4);
+    opacity: 0;
+    transition: 1s;
+}
+
+.dev-progress h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #64f0d2;
+    font-size: 26px;
+}
+
+.skill {
+    display: grid;
+    grid-template-columns: 1fr 2fr auto;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+    font-size: 16px;
+}
+
+.skill progress,
+.level-bar progress {
+    width: 100%;
+    height: 18px;
+    border-radius: 20px;
+    border: 2px solid #64f0d2;
+    background: black;
+}
+
+/* chrome / edge */
+
+.skill progress::-webkit-progress-bar,
+.level-bar progress::-webkit-progress-bar {
+    background: black;
+    border-radius: 20px;
+}
+
+.skill progress::-webkit-progress-value,
+.level-bar progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #64f0d2, #00ff99);
+    border-radius: 20px;
+    box-shadow: 0 0 8px #64f0d2;
+}
+
+/* firefox */
+
+.skill progress::-moz-progress-bar,
+.level-bar progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #64f0d2, #00ff99);
+    border-radius: 20px;
+}
+
+.level-bar {
+    width: 60%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+/* ==================================================
+   GLITCH EFFECT
+================================================== */
+
+#menu div.glitch {
+    animation: glitch-div 0.12s infinite;
+    box-shadow: -3px 0 rgb(55, 255, 0),
+                3px 0 rgb(255, 0, 0);
+}
+
+@keyframes glitch-div {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-15px, 2px); }
+    40% { transform: translate(10px, -1px); }
+    60% { transform: translate(0, -4px); }
+    80% { transform: translate(25px, 4px); }
+    100% { transform: translate(0, 0); }
+}
+
+#menu div.glitch p {
+    animation: glitch-text 1s infinite;
+    text-shadow: -2px 0 rgb(255, 0, 234),
+                 2px 0 rgb(23, 189, 8);
+}
+
+@keyframes glitch-text {
+    0% { transform: translate(0, 0); }
+    30% { transform: translate(-20px, 1px); }
+    60% { transform: translate(30px, 1px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* ==================================================
+   LIGHT MODE
+================================================== */
+
+body.light-mode {
+    background-color: #bcbcbc;
+    color: #222;
+}
+
+body.light-mode #setting {
+    background-image: url(img/lightmodes.png);
+    background-color: black;
+}
+
+/* header / footer */
+
+body.light-mode header,
+body.light-mode footer {
+    background-color: #e0e0e0;
+    color: #333;
+    border-color: #ccc;
+}
+
+/* menu */
+
+body.light-mode #menu {
+    background-color: #fff;
+    border-color: #bbb;
+}
+
+body.light-mode #menu div p {
+    background-color: #e9e9e9;
+    color: rgb(100, 240, 210);
+    border-color: #888;
+}
+
+/* text */
+
+body.light-mode #text {
+    background-color: #fff;
+    color: #000;
+}
+
+/* footer menu */
+
+body.light-mode #footer_menu {
+    background-color: #fff;
+    border-color: #8c8c8c;
+    color: #000;
+}
+
+/* light gifs */
+
+body.light-mode #div_py::before {
+    background-image: url(img/light_py_gif.gif);
+    border-color: #888;
+    background-color: white;
+}
+
+body.light-mode #div_cpp::before {
+    background-image: url(img/light_cpp_gif.gif);
+    border-color: #888;
+    background-color: white;
+}
+
+body.light-mode #div_webb::before {
+    background-image: url(img/light_html_gif.gif);
+    border-color: #888;
+    background-color: white;
+}
+
+/* progress light mode */
+
+body.light-mode .dev-progress {
+    background: white;
+    color: black;
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.785);
+}
+
+body.light-mode .skill progress,
+body.light-mode .level-bar progress {
+    background: white;
+}
+
+body.light-mode .skill progress::-webkit-progress-bar,
+body.light-mode .level-bar progress::-webkit-progress-bar {
+    background: white;
+}
+
+body.light-mode .level-bar {
+    color: black;
+}
+
+/* code light mode */
+
+body.light-mode #text_code {
+    background: white;
+    color: black;
+}
+
+body.light-mode .code_block {
+    background-color: #bbb;
+    color: black;
+}
+
+body.light-mode #skills {
+    background-color: #ddd;
+}
+
+body.light-mode .skill-btn {
+    background: white;
+    color: #64f0d2;
+    border-color: #888;
+}
+
+body.light-mode .skill-btn.active {
+    background: #64f0d2;
+    color: white;
+    border-color: #888;
+}
+
+/* ==================================================
+   SKILLS PANEL EXTRA
+================================================== */
+
+#skills {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+    box-shadow: 0 0 20px rgb(0, 255, 200);
+    width: 99%;
+    border-radius: 30px;
+    color: white;
+}
+
+.webb {
+    font-size: 25px;
+    margin-bottom: 40px;
+}

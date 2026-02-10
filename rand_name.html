@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rand-name</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<meta name="description" content="Put your description here.">
+<body>
+    <header class="head_foot">
+
+        <div id="lang_butns">
+            <button class="lang" id="btn_pl">PL</button>
+            <button class="lang" id="btn_en">EN</button>
+        </div>
+
+        <button id="setting"></button>
+        <nav id="menu">
+            <a href="index.html">
+                <div id="div_home">
+                    <p data-text="home">HOME</p>
+                </div> 
+            </a>
+            <a href="py.html">
+                <div id="div_py">
+                    <p data-text="py">print("PY")</p>
+                </div>
+            </a>
+        </nav>
+    </header>
+    </div>
+
+    <div id="text_code">
+        <div id="code_area">
+            <pre class="code_block" style="text-align: left; margin: 0;">
+                # generator of random peaple
+
+
+                # fuktions and modules
+                import random
+                import msvcrt
+                import sys
+                import os
+                import time
+                
+                # clear function for windows
+                clear = lambda: os.system('cls')
+                
+                
+                # function for generation
+                def names():
+                    
+                    # array with common Polish first names
+                    names = [
+                    # A
+                    "Adam", "Adrian", "Agnieszka", "Agata", "Alan", "Alicja", "Amelia", "Andrzej", 
+                    "Anna", "Antoni", "Arkadiusz", "Artur", 
+                    # B
+                    "Barbara", "Bartłomiej", "Bartosz", "Beata", "Błażej", "Bogdan", "Borys", "Bożena", 
+                    # C
+                    "Cecylia", "Cezary", "Cyprian", "Czesław", 
+                    # D
+                    "Dagmara", "Damian", "Daniel", "Daria", "Dariusz", "Dawid", "Dominik", "Dominika", "Dorota", 
+                    # E
+                    "Edyta", "Eliza", "Elżbieta", "Emilia", "Ernest", "Ewa", "Ewelina", 
+                    # F
+                    "Fabian", "Filip", "Franciszek", "Fryderyk", 
+                    # G
+                    "Gabriel", "Gabriela", "Grażyna", "Grzegorz", "Gustaw", 
+                    # H
+                    "Halina", "Hanna", "Helena", "Henryk", "Hubert", 
+                    # I
+                    "Iga", "Ignacy", "Igor", "Ilona", "Irena", "Iwona", "Izabela", 
+                    # J
+                    "Jacek", "Jadwiga", "Jakub", "Jan", "Janina", "Janusz", "Jarosław", "Jerzy", 
+                    "Joanna", "Jolanta", "Józef", "Julia", "Julian", "Justyna", 
+                    # K
+                    "Kacper", "Kaja", "Kamil", "Kamila", "Karina", "Karol", "Karolina", "Katarzyna", 
+                    "Kazimierz", "Kinga", "Klaudia", "Konrad", "Kornelia", "Krystian", "Krystyna", "Krzysztof", 
+                    # L
+                    "Laura", "Lech", "Lena", "Leon", "Leszek", "Lidia", "Liliana", "Lucyna", "Ludwik", 
+                    # Ł
+                    "Łucja", "Łukasz", 
+                    # M
+                    "Maciej", "Magdalena", "Maja", "Maksymilian", "Małgorzata", "Marcin", "Marek", 
+                    "Maria", "Marianna", "Mariola", "Mariusz", "Marta", "Martyna", "Mateusz", "Michał", 
+                    "Mikołaj", "Milena", "Mirosław", "Monika", 
+                    # N
+                    "Natalia", "Nikodem", "Nikola", "Nina", "Norbert", 
+                    # O
+                    "Olaf", "Olga", "Oliwia", "Oskar", 
+                    # P
+                    "Patrycja", "Patryk", "Paulina", "Paweł", "Piotr", "Przemysław", 
+                    # R
+                    "Radosław", "Rafał", "Remigiusz", "Renata", "Robert", "Roksana", "Roman", "Ryszard", 
+                    # S
+                    "Sandra", "Sebastian", "Seweryn", "Sławomir", "Stanisław", "Stefan", "Sylwia", "Szymon", 
+                    # T
+                    "Tadeusz", "Tatiana", "Teresa", "Tomasz", "Tymon", "Tymoteusz", 
+                    # U
+                    "Urszula", 
+                    # W
+                    "Wacław", "Waldemar", "Weronika", "Wiesław", "Wiktoria", "Witold", "Władysław", "Wojciech", 
+                    # Z
+                    "Zbigniew", "Zdzisław", "Zenon", "Zofia", "Zuzanna", "Zygmunt", 
+                    # Ż
+                    "Żaneta"
+                    ]
+                    
+                
+                    # array with common Polish last names
+                    last_names = [
+                        # A
+                        "Adamczyk", "Adamski", "Andrzejewski", "Augustyniak",
+                        # B
+                        "Baran", "Bąk", "Bednarek", "Białek", "Błaszczyk", "Borkowski", "Borowski", "Brzeziński", "Budzyński", "Bukowski",
+                        # C
+                        "Chmielewski", "Chojnacki", "Cieślak", "Cybulski", "Czajkowski", "Czarnecki", "Czerwiński",
+                        # Ć
+                        "Ćwik", "Ćwikliński",
+                        # D
+                        "Dąbrowski", "Dudek", "Duda", "Dziedzic", "Domański", "Drozd",
+                        # E
+                        "Ejsmont", "Eljasz",
+                        # F
+                        "Falkowski", "Fijałkowski", "Filipiak", "Frankowski", "Frąckowiak",
+                        # G
+                        "Gajewski", "Głowacki", "Godlewski", "Gołębiewski", "Górski", "Grabowski", "Grudzień", "Grzyb",
+                        # H
+                        "Hajduk", "Herman", "Hoffmann",
+                        # I
+                        "Idzikowski", "Ignaczak", "Iwanowski", "Izdebski",
+                        # J
+                        "Jabłoński", "Jackowski", "Jagiełło", "Jakubowski", "Jankowski", "Janowski", "Jarosz", "Jasiński", "Jaworski", "Jezierski",
+                        # K
+                        "Kaczmarek", "Kaczor", "Kalinowski", "Kamiński", "Kania", "Karpiński", "Kaźmierczak", "Klimczak", "Kołodziej", "Konieczny", "Kowalski", "Kowalczyk", "Kozłowski", "Krajewski", "Krawczyk", "Król", "Krupa", "Kubiak", "Kucharski", "Kwiatkowski",
+                        # L
+                        "Laskowski", "Lipiński", "Lis", "Lewandowski",
+                        # Ł
+                        "Łapiński", "Łuczak", "Łukasik",
+                        # M
+                        "Maciejewski", "Maj", "Majchrzak", "Majewski", "Makowski", "Malinowski", "Małecki", "Marciniak", "Markowski", "Marszałek", "Matusiak", "Mazur", "Mazurek", "Michalak", "Michalski", "Milewski", "Miller", "Mroczek", "Mróz", "Musiał",
+                        # N
+                        "Nawrocki", "Niemiec", "Nowak", "Nowakowski", "Nowicki",
+                        # O
+                        "Olech", "Olszewski", "Orłowski", "Osowski", "Ostrowski",
+                        # P
+                        "Pająk", "Paluch", "Panek", "Partyka", "Pawlak", "Pawłowski", "Piątek", "Pietrzak", "Piotrowski", "Piwowarczyk", "Przybylski",
+                        # R
+                        "Raczyński", "Radomski", "Rak", "Romanowski", "Rudnicki", "Rutkowski", "Rybak",
+                        # S
+                        "Sadowski", "Sawicki", "Sikora", "Sikorski", "Skiba", "Skowroński", "Sobczak", "Sobolewski", "Socha", "Sokołowski", "Sosnowski", "Sroka", "Stachowiak", "Stasiak", "Stankiewicz", "Stefański", "Stępień", "Szczepański", "Szewczyk", "Szulc", "Szymczak", "Szymański",
+                        # Ś
+                        "Śliwiński", "Ślusarczyk", "Świderski", "Świętek",
+                        # T
+                        "Tarnowski", "Tkaczyk", "Tomaszewski", "Tomczak", "Tomczyk", "Trojanowski", "Turek",
+                        # U
+                        "Urban", "Urbański", "Urbaniak",
+                        # W
+                        "Walczak", "Walkowiak", "Wasilewski", "Wawrzyniak", "Wesołowski", "Wieczorek", "Wierzbicki", "Wilk", "Winiarski", "Wiśniewski", "Witkowski", "Włodarczyk", "Wojciechowski", "Wolski", "Woźniak", "Wójcik", "Wróbel", "Wróblewski", "Wysocki",
+                        # Z
+                        "Zaborowski", "Zając", "Zakrzewski", "Zalewski", "Zawadzki", "Zaręba", "Zduńczyk", "Zieliński", "Ziółkowski", "Zych",
+                        # Ż
+                        "Żebrowski", "Żuk", "Żukowski", "Żurawski", "Żurek",
+                        # Ź
+                        "Źródłowski" 
+                    ]
+                
+                    # array with sex
+                    sexs = ["Male","Female"]
+                    
+                    # ask user for number of people to generate
+                    times = int(input("Enter how many people you want to generate > "))
+                    
+                    
+                    a = 0
+                
+                    # generate random people
+                    for i in range(0, times): 
+                
+                        a += 1
+                
+                        # get random age
+                        age = int((random.randrange(0,100)))
+                        
+                        # choose random text from representiv arrays
+                        name = random.choice(names)
+                        last_name = random.choice(last_names)
+                        sex = random.choice(sexs)
+                
+                        # gets random month
+                        month = int((random.randrange(1, 13))) 
+                        
+                        # determine max day based on month
+                        if month == 2:
+                            max_day = 29 
+                        elif month in [4, 6, 9, 11]:
+                            max_day = 30
+                        else:
+                            max_day = 31
+                        
+                        day = int((random.randrange(1, max_day + 1))) 
+                
+                        #determine year based on age from current year 2025
+                        year = 2025
+                        year -= age
+                        
+                        print(f"{a}: NAME: {name} {last_name} SEX: {sex} YEAR: {day:02d}.{month:02d}.{year}  AGE: {age}")
+                        print()
+                    
+                    # when done, wait for user to press ENTER
+                    print("--------------------------------")
+                    input ("press ENTER to continue")
+                    # clear screen
+                    clear()
+                    # return to menu
+                    print_menu()
+                    msvcrt.getch()
+                
+                
+                clear()
+                
+                # function for menu
+                def print_menu():
+                    position = 0
+                    print(" <Generate> EXIT ")
+                    while True:
+                
+                        key = msvcrt.getch()
+                
+                        # find key input
+                        if key == b'\xe0':
+                            key2 = msvcrt.getch()
+                
+                            match key2:
+                                case b'M': # right arrow
+                                    position += 1
+                                    clear()
+                                case b'K': # left arrow
+                                    position -= 1
+                                    clear()
+                                case _: # invalid option
+                                    clear()
+                                    print("invalid option")
+                                    time.sleep(1)
+                        # if position overflows
+                        if position < 0:
+                            position = 1
+                        elif position > 1:
+                            position = 0
+                
+                        # print menu with current position
+                        match position:
+                            case 0:
+                                print (" <Generate> EXIT ")
+                            case 1:
+                                print ("  Generate <EXIT> ")
+                    
+                        # if ENTER is pressed
+                        if key == b'\r':
+                
+                            # send to funktion names()
+                            if position == 0:
+                                clear()
+                                names()
+                            # exit program
+                            elif position == 1:
+                                clear()
+                                sys.exit()
+                 
+                
+                # start of the program
+                print_menu()
+            </pre>
+        </div>
+    </div>
+
+    <footer class="head_foot">
+        <nav id="footer_menu">
+            <p>&copy; 2026 KRYSTIAN T. KAMINSKI\HUNTER 2026</p>
+            <p>CONTACKT: </p>
+            <p>Phone: 321908073</p>
+            <p>Mail: </p>
+        </nav>
+      </footer>
+      
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tic-tac-toe</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<meta name="description" content="Put your description here.">
+<body>
+    <header class="head_foot">
+
+        <div id="lang_butns">
+            <button class="lang" id="btn_pl">PL</button>
+            <button class="lang" id="btn_en">EN</button>
+        </div>
+
+        <button id="setting"></button>
+        <nav id="menu">
+            <a href="index.html">
+                <div id="div_home">
+                    <p data-text="home">HOME</p>
+                </div> 
+            <a href="cpp.html">
+                <div id="div_cpp">
+                  <p data-text="cpp">cout &lt;&lt; "C++";</p>
+                </div>
+            </a>
+        </nav>
+    </header>
+    </div>
+
+    <div id="text_code">
+        <div id="code_area">
+            <pre class="code_block" style="text-align: left; margin: 0;">
+                //tic tac toe game in c++
+
+// include necessary libraries
+#include <iostream>
+#include <conio.h>
+#include <windows.h>
+#include <thread>
+#include <chrono>
+
+// use standard namespace puts std:: before standard functions
+using namespace std;
+
+bool game = true;
+// create the board
+char board[3][5] = {
+    {' ', '|', ' ', '|', ' '},
+    {' ', '|', ' ', '|', ' '},
+    {' ', '|', ' ', '|', ' '}
+};
+
+// generate the board
+void Board(int Row, int Coloumn, char bottom[14]) {
+
+	// clear the console
+    system("cls");
+
+	// print the board
+    for (int i = 0; i < 3; i++) {
+        cout << endl;
+
+		// check if the current position is the selected one
+        for (int k = 0; k < 5; k++) {
+            if (k == Coloumn && i == Row) {
+				// highlight the selected position
+                cout << "[" << board[i][k] << "]";
+            }
+            else {
+				// print the board normally
+                cout << " " << board[i][k] << " ";
+            }
+        }
+        cout << endl;
+        if (i == 2) {
+            continue;
+        }
+		else { // print the border lines
+            for (int j = 0; j < 15; j++) {
+                cout << bottom[j];
+            }
+        }
+    }
+}
+// funktion check for a win condition (AI generated)
+bool Win() {
+    for (int i = 0; i < 3; i++) {
+        if (board[i][0] != ' ' && board[i][0] == board[i][2] && board[i][2] == board[i][4])
+            return true;
+
+        if (board[0][i * 2] != ' ' && board[0][i * 2] == board[1][i * 2] && board[1][i * 2] == board[2][i * 2])
+            return true;
+    }
+
+    if (board[0][0] != ' ' && board[0][0] == board[1][2] && board[1][2] == board[2][4])
+        return true;
+
+    if (board[0][4] != ' ' && board[0][4] == board[1][2] && board[1][2] == board[2][0])
+        return true;
+
+    return false;
+}
+// funktion check for a draw condition
+bool Draw() {
+	// check if all positions are filled and no win condition is met (return false)
+    for (int i = 0; i < 3; i++) {
+        for (int k = 0; k < 5; k += 2) {
+            if (board[i][k] == ' ')
+                return false;
+        }
+    }
+	// else return true (draw)
+    return true;
+}
+// funktion to ask the player if they want to play again
+void Again() {
+    system("cls");
+    char awnser;
+	// ask the player if they want to play again and print the board
+    cout << "DO YOU WANT TO PLAY AGAIN? (Y/N): ";
+
+    awnser = _getch();
+
+    if (awnser == 'Y' || awnser == 'y') {
+        for (int i = 0; i < 3; i++) {
+            for (int k = 0; k < 5; k++) {
+                if (k % 2 == 0) {
+                    board[i][k] = ' ';
+                }
+            }
+        }
+    }
+    else {
+        exit(0);
+    }
+}
+
+int main() {
+    // Initialization of variables, board, and scores
+    char bottom[15] = { '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-' };
+    int row = 0;
+    int coloumn = 0;
+    char player = 'X';
+    int scoreX = 0, scoreO = 0;
+    bool gameOver = false;
+
+    // Main game loop, runs while game == true
+    while (game) {
+        // If the game is over, wait a moment and ask for a replay
+        if (gameOver) {
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            Again();
+
+            // Reset cursor position and player after a new game
+            row = 0;
+            coloumn = 0;
+            player = 'X';
+            gameOver = false;
+        }
+
+        // Draw the board and display current score and player's turn
+        Board(row, coloumn, bottom);
+        cout << "\n\nSCORE: (X) " << scoreX << " - (O) " << scoreO << endl;
+        cout << "NOW MOVES: " << player << endl;
+
+        // Read control key (arrows, space, enter, ESC)
+        unsigned char key = _getch();
+
+        // Handle cursor moves (arrow keys)
+        if (key == 224) {
+            key = _getch();
+
+            switch (key) {
+            case 75: // left
+                coloumn -= 2;
+                if (coloumn < 0) coloumn = 4;
+                break;
+            case 77: // right
+                coloumn += 2;
+                if (coloumn > 4) coloumn = 0;
+                break;
+            case 72: // up
+                row--;
+                if (row < 0) row = 2;
+                break;
+            case 80: // down
+                row++;
+                if (row > 2) row = 0;
+                break;
+            }
+        }
+        // Handle field selection (enter or space)
+        else if (key == 13 || key == 32) {
+            // If the field is empty, make a move
+            if (board[row][coloumn] == ' ') {
+                board[row][coloumn] = player;
+
+                // Check for a win
+                if (Win()) {
+                    Board(row, coloumn, bottom);
+                    if (player == 'X') {
+                        scoreX++;
+                    }
+                    else {
+                        scoreO++;
+                    }
+                    cout << "\n\n " << player << " WINS" << endl;
+                    gameOver = true;
+                }
+                // Check for a draw
+                else if (Draw()) {
+                    Board(row, coloumn, bottom);
+                    cout << "\n\nDRAW" << endl;
+                    gameOver = true;
+                }
+
+                // Switch player if the game continues
+                if (!gameOver) {
+                    if (player == 'X') {
+                        player = 'O';
+                    }
+                    else {
+                        player = 'X';
+                    }
+                }
+            }
+        }
+        // Exit game on ESC key press
+        else if (key == 27) {
+            break;
+        }
+    }
+    return 0;
+}
+
+            </pre>
+        </div>
+    </div>
+
+    <footer class="head_foot">
+        <nav id="footer_menu">
+            <p>&copy; 2026 KRYSTIAN T. KAMINSKI\HUNTER 2026</p>
+            <p>CONTACKT: </p>
+            <p>Phone: 321908073</p>
+            <p>Mail: </p>
+        </nav>
+      </footer>
+      
+    <script src="script.js"></script>
+</body>
+</html>
