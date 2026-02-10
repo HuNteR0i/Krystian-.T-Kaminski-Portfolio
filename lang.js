@@ -81,14 +81,6 @@ interest` },
     py: { pl: 'print("PY")', en: 'print("PY")' },
     html: { pl: "HTML", en: "HTML" },
 
-    junior: { pl: "Junior", en: "Junior" },
-    mid: { pl: "Mid", en: "Mid" },
-    coding_skill: { pl: "Coding Skill", en: "Coding Skill" },
-    algorithms: { pl: "Algorithms", en: "Algorithms" },
-    architecture: { pl: "Architecture", en: "Architecture" },
-    frontend_ui: { pl: "Frontend / UI", en: "Frontend / UI" },
-    debugging: { pl: "Debugging", en: "Debugging" },
-
     Samodzielność: { pl: "Samodzielność", en: "Independence" },
     Struktura: { pl: "Struktura", en: "Structure" },
 
