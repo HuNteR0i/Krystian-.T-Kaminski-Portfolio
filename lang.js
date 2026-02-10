@@ -16,10 +16,8 @@ It's difficult to use.` },
 Ten program losowo wybiera nazwy z listy.`, en: `Random Names:
 This program randomly selects names from a list.` },
 
-    name: { pl: `Imię: 
-KRYSTIAN T. KAMINSKI`, 
-en: `NAME:
-KRYSTIAN T. KAMINSKI` },
+    name: { pl: `Imię: Hunter`, 
+en: `NAME: Hunter` },
     
     birthdate: { pl: `Data urodzenia:
 06/12/09`, 

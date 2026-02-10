@@ -34,205 +34,205 @@
     <div id="text_code">
         <div id="code_area">
             <pre class="code_block" style="text-align: left; margin: 0;">
-                #include <iostream>
-                    #include <cstdlib>
-                    #include <ctime>
-                    
-                    using namespace std;
-                    
-                    void game() {
-                        int level, rand_num, guess, tries;
-                    
-                        
-                    
-                        switch (level) {
-                        case 1: {
-                            cout << "The game has begun!" << endl;
-                            tries = 1;
-                            rand_num = rand() % 5 + 1;
-                            while (tries > 0) {
-                                cout << "Guess a number between 1 and 5: ";
-                                cin >> guess;
-                    
-                                if (guess == rand_num) {
-                                    cout << "You win!" << endl;
-                                    break;
-                                }
-                                else {
-                                    tries--;
-                                    cout << "Wrong, try again." << endl;
-                                    cout << "You have " << tries << " tries left." << endl;
-                                }
-                            }
-                            if (tries == 0) {
-                                cout << "You lose. The number was " << rand_num << "." << endl;
-                            }
-                            break;
-                        }
-                        case 2: {
-                            cout << "The game has begun!" << endl;
-                            tries = 3;
-                            rand_num = rand() % 10 + 1;
-                            while (tries > 0) {
-                                cout << "Guess a number between 1 and 10: ";
-                                cin >> guess;
-                                if (guess == rand_num) {
-                                    cout << "You win!" << endl;
-                                    break;
-                                }
-                                else {
-                                    tries--;
-                                    cout << "Wrong, try again." << endl;
-                                    cout << "You have " << tries << " tries left." << endl;
-                                    if (guess > rand_num)
-                                        cout << "The number is lower." << endl;
-                                    else
-                                        cout << "The number is higher." << endl;
-                                }
-                            }
-                            if (tries == 0) {
-                                cout << "You lose. The number was " << rand_num << "." << endl;
-                            }
-                            break;
-                        }
-                        case 3: {
-                            cout << "The game has begun!" << endl;
-                            tries = 5;
-                            rand_num = rand() % 20 + 1;
-                            while (tries > 0) {
-                                cout << "Guess a number between 1 and 20: ";
-                                cin >> guess;
-                                if (guess == rand_num) {
-                                    cout << "You win!" << endl;
-                                    break;
-                                }
-                                else {
-                                    tries--;
-                                    cout << "Wrong, try again." << endl;
-                                    cout << "You have " << tries << " tries left." << endl;
-                                    if (guess > rand_num)
-                                        cout << "The number is lower." << endl;
-                                    else
-                                        cout << "The number is higher." << endl;
-                                }
-                            }
-                            if (tries == 0) {
-                                cout << "You lose. The number was " << rand_num << "." << endl;
-                            }
-                            break;
-                        }
-                    
-                        default:
-                            cout << "Invalid difficulty level!" << endl;
-                            break;
-                        }
-                    }
-                    void game_2() {
-                        int level, rand_num, guess_1, guess_2, tries;
-                        char nickname;
-                        char again;
-                        string player_1, player_2;
-                    
-                        cout << "Do you want a nickname? (y/n): ";
-                        cin >> nickname;
-                    
-                        if (nickname == 'y' || nickname == 'Y') {
-                            cout << "Player 1 name: ";
-                            cin >> player_1;
-                            cout << "Player 2 name: ";
-                            cin >> player_2;
-                        }
-                        else {
-                            player_1 = "Player1";
-                            player_2 = "Player2";
-                        }
-                    
-                        cout << "Choose a difficulty (1 - Medium, 2 - Hard): ";
-                        cin >> level;
-                    
-                        if (level == 1) {
-                            tries = 5;
-                            rand_num = rand() % 10 + 1;
-                        }
-                        else if (level == 2) {
-                            tries = 8;
-                            rand_num = rand() % 20 + 1;
-                        }
-                        else {
-                            cout << "Invalid level.\n";
-                            return;
-                        }
-                        while (tries > 0) {
-                            cout << player_1 << ", guess: ";
-                            cin >> guess_1;
-                            cout << player_2 << ", guess: ";
-                            cin >> guess_2;
-                    
-                            if (guess_1 == rand_num) {
-                                cout << player_1 << " wins! The number was " << rand_num << endl;
-                                return;
-                            }
-                            else if (guess_2 == rand_num) {
-                                cout << player_2 << " wins! The number was " << rand_num << endl;
-                                return;
-                            }
-                            else {
-                                tries--;
-                                cout << "Wrong guesses! You have " << tries << " tries left.\n";
-                            }
-                        }
-                    
-                        cout << "You both lose! The number was " << rand_num << ".\n";
-                    
-                        cout << "Do you want to play again? (y/n): ";
-                        cin >> again;
-                        if (again == 'y' || again == 'Y') {
-                            game_2();
-                        }
-                    }
-                    void beginning() {
-                        while (true) {
-                            cout << "\nChoose number of players (1 / 2 or q to quit): ";
-                            char player_num;
-                            cin >> player_num;
-                    
-                            if (player_num == '1') {
-                                cout << "You chose 1 Player mode." << endl;
-                                game();
-                            }
-                            else if (player_num == '2') {
-                                cout << "You chose 2 Players mode." << endl;
-                                game_2();
-                            }
-                            else if (player_num == 'q' || player_num == 'Q') {
-                                cout << "Exiting game..." << endl;
-                                break;
-                            }
-                            else {
-                                cout << "Invalid choice. Try again." << endl;
-                            }
-                        }
-                    }
-                    int main() {
-                        char start;
-                        srand(time(0));
-                    
-                        cout << "WELCOME TO Guess The Number!" << " (1.0)" << endl;
-                        cout << "Do you want to play? (y/n): ";
-                        cin >> start;
-                    
-                        if (start == 'y' || start == 'Y') {
-                            beginning();
-                        }
-                        else if (start == 'n' || start == 'N') {
-                            cout << "Goodbye!" << endl;
-                            return 0;
-                        }
-                        else {
-                            cout << "Invalid input. Exiting..." << endl;
-                        }
-                        return 0;
-                    }
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+void game() {
+    int level, rand_num, guess, tries;
+
+    
+
+    switch (level) {
+    case 1: {
+        cout << "The game has begun!" << endl;
+        tries = 1;
+        rand_num = rand() % 5 + 1;
+        while (tries > 0) {
+            cout << "Guess a number between 1 and 5: ";
+            cin >> guess;
+
+            if (guess == rand_num) {
+                cout << "You win!" << endl;
+                break;
+            }
+            else {
+                tries--;
+                cout << "Wrong, try again." << endl;
+                cout << "You have " << tries << " tries left." << endl;
+            }
+        }
+        if (tries == 0) {
+            cout << "You lose. The number was " << rand_num << "." << endl;
+        }
+        break;
+    }
+    case 2: {
+        cout << "The game has begun!" << endl;
+        tries = 3;
+        rand_num = rand() % 10 + 1;
+        while (tries > 0) {
+            cout << "Guess a number between 1 and 10: ";
+            cin >> guess;
+            if (guess == rand_num) {
+                cout << "You win!" << endl;
+                break;
+            }
+            else {
+                tries--;
+                cout << "Wrong, try again." << endl;
+                cout << "You have " << tries << " tries left." << endl;
+                if (guess > rand_num)
+                    cout << "The number is lower." << endl;
+                else
+                    cout << "The number is higher." << endl;
+            }
+        }
+        if (tries == 0) {
+            cout << "You lose. The number was " << rand_num << "." << endl;
+        }
+        break;
+    }
+    case 3: {
+        cout << "The game has begun!" << endl;
+        tries = 5;
+        rand_num = rand() % 20 + 1;
+        while (tries > 0) {
+            cout << "Guess a number between 1 and 20: ";
+            cin >> guess;
+            if (guess == rand_num) {
+                cout << "You win!" << endl;
+                break;
+            }
+            else {
+                tries--;
+                cout << "Wrong, try again." << endl;
+                cout << "You have " << tries << " tries left." << endl;
+                if (guess > rand_num)
+                    cout << "The number is lower." << endl;
+                else
+                    cout << "The number is higher." << endl;
+            }
+        }
+        if (tries == 0) {
+            cout << "You lose. The number was " << rand_num << "." << endl;
+        }
+        break;
+    }
+
+    default:
+        cout << "Invalid difficulty level!" << endl;
+        break;
+    }
+}
+void game_2() {
+    int level, rand_num, guess_1, guess_2, tries;
+    char nickname;
+    char again;
+    string player_1, player_2;
+
+    cout << "Do you want a nickname? (y/n): ";
+    cin >> nickname;
+
+    if (nickname == 'y' || nickname == 'Y') {
+        cout << "Player 1 name: ";
+        cin >> player_1;
+        cout << "Player 2 name: ";
+        cin >> player_2;
+    }
+    else {
+        player_1 = "Player1";
+        player_2 = "Player2";
+    }
+
+    cout << "Choose a difficulty (1 - Medium, 2 - Hard): ";
+    cin >> level;
+
+    if (level == 1) {
+        tries = 5;
+        rand_num = rand() % 10 + 1;
+    }
+    else if (level == 2) {
+        tries = 8;
+        rand_num = rand() % 20 + 1;
+    }
+    else {
+        cout << "Invalid level.\n";
+        return;
+    }
+    while (tries > 0) {
+        cout << player_1 << ", guess: ";
+        cin >> guess_1;
+        cout << player_2 << ", guess: ";
+        cin >> guess_2;
+
+        if (guess_1 == rand_num) {
+            cout << player_1 << " wins! The number was " << rand_num << endl;
+            return;
+        }
+        else if (guess_2 == rand_num) {
+            cout << player_2 << " wins! The number was " << rand_num << endl;
+            return;
+        }
+        else {
+            tries--;
+            cout << "Wrong guesses! You have " << tries << " tries left.\n";
+        }
+    }
+
+    cout << "You both lose! The number was " << rand_num << ".\n";
+
+    cout << "Do you want to play again? (y/n): ";
+    cin >> again;
+    if (again == 'y' || again == 'Y') {
+        game_2();
+    }
+}
+void beginning() {
+    while (true) {
+        cout << "\nChoose number of players (1 / 2 or q to quit): ";
+        char player_num;
+        cin >> player_num;
+
+        if (player_num == '1') {
+            cout << "You chose 1 Player mode." << endl;
+            game();
+        }
+        else if (player_num == '2') {
+            cout << "You chose 2 Players mode." << endl;
+            game_2();
+        }
+        else if (player_num == 'q' || player_num == 'Q') {
+            cout << "Exiting game..." << endl;
+            break;
+        }
+        else {
+            cout << "Invalid choice. Try again." << endl;
+        }
+    }
+}
+int main() {
+    char start;
+    srand(time(0));
+
+    cout << "WELCOME TO Guess The Number!" << " (1.0)" << endl;
+    cout << "Do you want to play? (y/n): ";
+    cin >> start;
+
+    if (start == 'y' || start == 'Y') {
+        beginning();
+    }
+    else if (start == 'n' || start == 'N') {
+        cout << "Goodbye!" << endl;
+        return 0;
+    }
+    else {
+        cout << "Invalid input. Exiting..." << endl;
+    }
+    return 0;
+}
             </pre>
         </div>
     </div>

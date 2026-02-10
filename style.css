@@ -194,7 +194,7 @@ footer {
 
 .code_block {
     width: 95%;
-    max-height: 200px;
+    max-height: 400px;
     overflow-y: auto;
     background-color: #222;
     color: #eee;
@@ -203,6 +203,9 @@ footer {
     white-space: pre-wrap;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    text-align: start;
+    justify-content: left;
+    align-items: left;
 }
 
 .code_block::-webkit-scrollbar {

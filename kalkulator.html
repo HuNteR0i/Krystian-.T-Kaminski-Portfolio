@@ -34,161 +34,161 @@
     <div id="text_code">
         <div id="code_area">
             <pre class="code_block" style="text-align: left; margin: 0;">
-                import time
-                import os
-                
-                operation = True
-                history = []
-                
-                def show_help():
-                    print("to use decimals write a dot (.)")
-                    time.sleep(1)
-                    print("to stop the calculator write 'end'")
-                    time.sleep(1)
-                    print("if you want to write something make sure you have spaces between the numbers")
-                    print("_______________________________________________________________________________")
-                    time.sleep(1)
-                    input("\nPress Enter to continue...")
-                    os.system("cls" if os.name == "nt" else "clear")
-                
-                def show_history():
-                    if not history:
-                        print("No calculations yet.")
-                    else:
-                        print("---- Calculation History ----")
-                        for item in history:
-                            print(item)
-                    input("\nPress Enter to continue...")
-                    os.system("cls" if os.name == "nt" else "clear")
-                
-                def exit_calculator():
-                    global operation
-                    print("Calculator closed")
-                    print("_________________")
-                    operation = False
-                
-                while operation:
-                
-                    print("Calculator!")
-                    print("write format: num (+,-,*,/) num")
-                    print("(if you want some information write help)")
-                
-                    user_input = input(">  ").strip()
-                
-                    # Help system
-                    if user_input.lower() == "help":
-                        show_help()
-                        continue
-                    elif user_input.lower() == "history":
-                        show_history()
-                        continue
-                    elif user_input.lower() == "end":
-                        exit_calculator()
-                        break
-                
-                    # Main calculation
-                    try:
-                        
-                            parts = user_input.split()
-                            first_num = float(parts[0])
-                            operator = parts[1]
-                            second_num = float(parts[2])
-                            if len(parts) == 2 and parts[1].lower() == "!":
-                                operator = parts[1]
-                                second_num = 1
-                
-                    except (ValueError, IndexError):
-                        print("_________________")
-                        print("Invalid operation")
-                        print("_________________")
-                        time.sleep(2)
-                        os.system("cls" if os.name == "nt" else "clear")
-                        continue
-                
-                    # Match operator
-                    match operator:
-                        case "+":
-                            result = first_num + second_num
-                        case "-":
-                            result = first_num - second_num
-                        case "*":
-                            result = first_num * second_num
-                        case "/":
-                            if second_num != 0:
-                                result = first_num / second_num
-                            else:
-                                result = "Error: Division by zero"
-                        case "!":
-                            while first_num > 1:
-                                first_num *= first_num - 1
-                                first_num -= 1
-                        case _:
-                            result = "Invalid operator"
-                
-                    # Add to history
-                    history.append(f"{first_num} {operator} {second_num} = {result}")
-                
-                    # Show result
-                    print("________________________")
-                    print("Result:", result)
-                    print("________________________")
-                
-                    # Option for chained calculation
-                    while isinstance(result, (int, float)):
-                        chain_input = input(">  ").strip()
-                        if chain_input == "":
-                            break
-                        try:
-                            parts = chain_input.split()
-                            operator_2 = parts[0]
-                            third_num = float(parts[1])
-                        except (ValueError, IndexError):
-                            print ("ended the calculation")
-                            time.sleep(2)
-                            os.system("cls" if os.name == "nt" else "clear")
-                            print ("ended the calculation")
-                            continue
-                            
-                
-                        match operator_2:
-                            case "+":
-                                result += third_num
-                            case "-":
-                                result -= third_num
-                            case "*":
-                                result *= third_num
-                            case "/":
-                                if third_num != 0:
-                                    result /= third_num
-                                else:
-                                    print("_______________________")
-                                    print("Error: Division by zero")
-                                    print("_______________________")
-                                    break
-                            case _:
-                                print("________________")
-                                print("Invalid operator")
-                                print("________________")
-                                continue
-                
-                        # Add chained result to history
-                        history.append(f"{operator_2} {third_num} => {result}")
-                
-                        print("_______________________")
-                        print("Current result:", result)
-                        print("_______________________")
-                
-                    # Wait and clear screen
-                    time.sleep(2)
-                    os.system("cls" if os.name == "nt" else "clear")
-                
+import time
+import os
+
+operation = True
+history = []
+
+def show_help():
+    print("to use decimals write a dot (.)")
+    time.sleep(1)
+    print("to stop the calculator write 'end'")
+    time.sleep(1)
+    print("if you want to write something make sure you have spaces between the numbers")
+    print("_______________________________________________________________________________")
+    time.sleep(1)
+    input("\nPress Enter to continue...")
+    os.system("cls" if os.name == "nt" else "clear")
+
+def show_history():
+    if not history:
+        print("No calculations yet.")
+    else:
+        print("---- Calculation History ----")
+        for item in history:
+            print(item)
+    input("\nPress Enter to continue...")
+    os.system("cls" if os.name == "nt" else "clear")
+
+def exit_calculator():
+    global operation
+    print("Calculator closed")
+    print("_________________")
+    operation = False
+
+while operation:
+
+    print("Calculator!")
+    print("write format: num (+,-,*,/) num")
+    print("(if you want some information write help)")
+
+    user_input = input(">  ").strip()
+
+    # Help system
+    if user_input.lower() == "help":
+        show_help()
+        continue
+    elif user_input.lower() == "history":
+        show_history()
+        continue
+    elif user_input.lower() == "end":
+        exit_calculator()
+        break
+
+    # Main calculation
+    try:
+        
+            parts = user_input.split()
+            first_num = float(parts[0])
+            operator = parts[1]
+            second_num = float(parts[2])
+            if len(parts) == 2 and parts[1].lower() == "!":
+                operator = parts[1]
+                second_num = 1
+
+    except (ValueError, IndexError):
+        print("_________________")
+        print("Invalid operation")
+        print("_________________")
+        time.sleep(2)
+        os.system("cls" if os.name == "nt" else "clear")
+        continue
+
+    # Match operator
+    match operator:
+        case "+":
+            result = first_num + second_num
+        case "-":
+            result = first_num - second_num
+        case "*":
+            result = first_num * second_num
+        case "/":
+            if second_num != 0:
+                result = first_num / second_num
+            else:
+                result = "Error: Division by zero"
+        case "!":
+            while first_num > 1:
+                first_num *= first_num - 1
+                first_num -= 1
+        case _:
+            result = "Invalid operator"
+
+    # Add to history
+    history.append(f"{first_num} {operator} {second_num} = {result}")
+
+    # Show result
+    print("________________________")
+    print("Result:", result)
+    print("________________________")
+
+    # Option for chained calculation
+    while isinstance(result, (int, float)):
+        chain_input = input(">  ").strip()
+        if chain_input == "":
+            break
+        try:
+            parts = chain_input.split()
+            operator_2 = parts[0]
+            third_num = float(parts[1])
+        except (ValueError, IndexError):
+            print ("ended the calculation")
+            time.sleep(2)
+            os.system("cls" if os.name == "nt" else "clear")
+            print ("ended the calculation")
+            continue
+            
+
+        match operator_2:
+            case "+":
+                result += third_num
+            case "-":
+                result -= third_num
+            case "*":
+                result *= third_num
+            case "/":
+                if third_num != 0:
+                    result /= third_num
+                else:
+                    print("_______________________")
+                    print("Error: Division by zero")
+                    print("_______________________")
+                    break
+            case _:
+                print("________________")
+                print("Invalid operator")
+                print("________________")
+                continue
+
+        # Add chained result to history
+        history.append(f"{operator_2} {third_num} => {result}")
+
+        print("_______________________")
+        print("Current result:", result)
+        print("_______________________")
+
+    # Wait and clear screen
+    time.sleep(2)
+    os.system("cls" if os.name == "nt" else "clear")
+
             </pre>
         </div>
     </div>
 
     <footer class="head_foot">
         <nav id="footer_menu">
-            <p>&copy; 2026 KRYSTIAN T. KAMINSKI\HUNTER 2026</p>
+            <p>&copy; HUNTER 2026</p>
             <p>CONTACKT: </p>
             <p>Phone: 321908073</p>
             <p>Mail: </p>
