@@ -6,13 +6,13 @@ const translations = {
 
     rand_name_code: { pl: `Losowe nazwy (kod)`, en: `Random Names (code)` },
 
-    rand_name: { pl: `Kalkulator:
+    kalkulator: { pl: `Kalkulator:
 Ten kalkulator to mój pierwszy program PY.
 Jest trudny w obsłudze.`, en: `Calculator:
 This calculator is my first PY program.
 It's difficult to use.` },
 
-    kalkulator: { pl: `Losowe nazwy:
+rand_name: { pl: `Losowe nazwy:
 Ten program losowo wybiera nazwy z listy.`, en: `Random Names:
 This program randomly selects names from a list.` },
 
