@@ -34,327 +34,244 @@
     <div id="text_code">
         <div id="code_area">
             <pre class="code_block" style="text-align: left; margin: 0;">
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <conio.h>
-
-using namespace std;
-
-struct raw_data {
-
-    int key = 0;
-    int curent_pos = 0;
-    int new_row = 10;
-    int guess;
-    int lvl = 1;
-    int win = 0, lose = 0;
-    string line = "---------------------------------------";
-};
-
-raw_data& data() {
-
-    static raw_data d;
-    return d;
-}
-
-void lvl_3() {
-
-    int rand_num = rand() % 51;
-    data().guess = 15;
-
-    while (data().guess != 0) {
-
-        system("cls");
-
-        cout << "lvl.3" << endl;
-        cout << data().line << endl;
-
-        for (int i = 0; i < 51; i++){
-
-            if (data().new_row == i)
-            {
-                cout << " " << i << " " << endl;
-            }
-            else if (i == data().curent_pos) {
-                cout << "<" << i << ">";
-            }
-            else {
-                cout << " " << i << " ";
-            }
-            
-            
-        }
-
-        cout << endl << data().line << endl;
-
-        cout << "YOU GOT " << data().guess << " GUESS";
-
-        data().key = _getch();
-
-        if (data().key == 224) {
-            data().key = _getch();
-
-            switch (data().key) {
-            case 75:
-                data().curent_pos--;
-                if (data().curent_pos < 0) data().curent_pos = 50;
-                break;
-            case 77:
-                data().curent_pos++;
-                if (data().curent_pos > 50) data().curent_pos = 0;
-                break;
-            }
-        }
-        else if (data().key == 13) {
-
-            if (data().curent_pos != rand_num) {
-                data().guess--;
-                continue;
-            }
-
-            else if (data().curent_pos == rand_num) {
-                break;
-            }
-
-            break;
-        }
-    }
-
-    system("cls");
-
-    cout << endl << endl;
-
-    if (data().curent_pos != rand_num) {
-        cout << "BAD LUCK MATE" << endl;
-        data().lose++;
-
-    }
-    else if (data().curent_pos == rand_num) {
-        cout << "GOOD MATE" << endl;
-        data().win++;
-    }
-
-    cout << data().line << endl;
-
-}
-
-void lvl_2() {
-
-    int rand_num = rand() % 26;
-    data().guess = 5;
-
-    while (data().guess != 0) {
-
-        system("cls");
-
-        cout << "lvl.2" << endl;
-        cout << data().line << endl;
-
-        for (int i = 0; i < 26; i++) {
-
-            data().new_row++;
-
-            if (i == data().curent_pos) {
-                cout << "<" << i << ">";
-            }
-            else {
-                cout << " " << i << " ";
-            }
-        }
-
-        cout << endl << data().line << endl;
-
-        cout << "YOU GOT " << data().guess << " GUESS";
-
-        data().key = _getch();
-
-        if (data().key == 224) {
-            data().key = _getch();
-
-            switch (data().key) {
-            case 75:
-                data().curent_pos--;
-                if (data().curent_pos < 0) data().curent_pos = 25;
-                break;
-            case 77:
-                data().curent_pos++;
-                if (data().curent_pos > 25) data().curent_pos = 0;
-                break;
-            }
-        }
-        else if (data().key == 13) {
-
-            if (data().curent_pos != rand_num) {
-                data().guess--;
-                continue;
-            }
-
-            else if (data().curent_pos == rand_num) {
-                break;
-            }
-
-            break;
-        }
-    }
-
-    system("cls");
-
-    cout << endl << endl;
-
-    if (data().curent_pos != rand_num) {
-        cout << "BAD LUCK MATE" << endl;
-        data().lose++;
-
-    }
-    else if (data().curent_pos == rand_num) {
-        cout << "GOOD MATE" << endl;
-        data().win++;
-    }
-
-    cout << data().line << endl;
-
-}
-
-void lvl_1() {
-
-    int rand_num = rand() % 11;
-    data().guess = 2;
-
-    while (data().guess != 0) {
-
-        system("cls");
-
-        cout << "lvl.1" << endl;
-        cout << "---------------------------------------" << endl;
-
-        for (int i = 0; i < 11; i++) {
-
-            if (i == data().curent_pos) {
-                cout << "<" << i << ">";
-            }
-            else {
-                cout << " " << i << " ";
-            }
-        }
-
-        cout << endl << "---------------------------------------" << endl;
-
-        cout << "YOU GOT " << data().guess << " GUESS";
-
-        data().key = _getch();
-
-        if (data().key == 224) {
-            data().key = _getch();
-
-            switch (data().key) {
-            case 75:
-                data().curent_pos--;
-                if (data().curent_pos < 0) data().curent_pos = 10;
-                break;
-            case 77:
-                data().curent_pos++;
-                if (data().curent_pos > 10) data().curent_pos = 0;
-                break;
-            }
-        }
-        else if (data().key == 13) {
-            
-            if (data().curent_pos != rand_num) {
-                data().guess--;
-            }
-
-            else if (data().curent_pos == rand_num) {
-                break;
-            }
-            
-            break;
-        }
-    }
-
-    system("cls");
-
-    cout << endl << endl;
-
-    if (data().curent_pos != rand_num) {
-
-        cout << "BAD GUESS" << endl;
-        data().lose++;
-
-    }
-    else if (data().curent_pos == rand_num) {
-
-        cout << "GOOD GUESS" << endl;
-        data().win++;
-    }
-
-    cout << "---------------------------------------" << endl;
-
-}
-
-int main() {
-
-    srand(time(0));
-    while (true) {
-        cout << "Welcome to Guess The Number 2.0" << endl;
-        system("pause");
-
-        while (true) {
-
-            system("cls");
-            cout << "What difficulty do you want to play on\n";
-
-            for (int i = 1; i < 4; i++) {
-
-                if (i == data().lvl) {
-                    cout << "<" << i << ">";
-                }
-                else {
-                    cout << " " << i << " ";
-                }
-            }
-
-            cout << endl << data().line << endl;
-
-            cout << "lost: " << data().lose << " " << "won: " << data().win;
-
-            data().key = _getch();
-
-            if (data().key == 224) {
-                data().key = _getch();
-
-                switch (data().key) {
-                case 75:
-                    data().lvl--;
-                    if (data().lvl < 1) data().lvl = 3;
-                    break;
-                case 77:
-                    data().lvl++;
-                    if (data().lvl > 3) data().lvl = 1;
-                    break;
-                }
-            }
-            else if (data().key == 13) {
-                break;
-            }
-        }
-
-        system("cls");
-
-        switch (data().lvl) {
-        case 1:
-            lvl_1();
-            break;
-        case 2:
-            lvl_2();
-            break;
-        case 3:
-            lvl_3();
-            break;
-        }
-    }
-}
-
+# generator of random peaple
+
+
+# fuktions and modules
+import random
+import msvcrt
+import sys
+import os
+import time
+
+# clear function for windows
+clear = lambda: os.system('cls')
+
+
+# function for generation
+def names():
+    
+    # array with common Polish first names
+    names = [
+    # A
+    "Adam", "Adrian", "Agnieszka", "Agata", "Alan", "Alicja", "Amelia", "Andrzej", 
+    "Anna", "Antoni", "Arkadiusz", "Artur", 
+    # B
+    "Barbara", "Bartłomiej", "Bartosz", "Beata", "Błażej", "Bogdan", "Borys", "Bożena", 
+    # C
+    "Cecylia", "Cezary", "Cyprian", "Czesław", 
+    # D
+    "Dagmara", "Damian", "Daniel", "Daria", "Dariusz", "Dawid", "Dominik", "Dominika", "Dorota", 
+    # E
+    "Edyta", "Eliza", "Elżbieta", "Emilia", "Ernest", "Ewa", "Ewelina", 
+    # F
+    "Fabian", "Filip", "Franciszek", "Fryderyk", 
+    # G
+    "Gabriel", "Gabriela", "Grażyna", "Grzegorz", "Gustaw", 
+    # H
+    "Halina", "Hanna", "Helena", "Henryk", "Hubert", 
+    # I
+    "Iga", "Ignacy", "Igor", "Ilona", "Irena", "Iwona", "Izabela", 
+    # J
+    "Jacek", "Jadwiga", "Jakub", "Jan", "Janina", "Janusz", "Jarosław", "Jerzy", 
+    "Joanna", "Jolanta", "Józef", "Julia", "Julian", "Justyna", 
+    # K
+    "Kacper", "Kaja", "Kamil", "Kamila", "Karina", "Karol", "Karolina", "Katarzyna", 
+    "Kazimierz", "Kinga", "Klaudia", "Konrad", "Kornelia", "Krystian", "Krystyna", "Krzysztof", 
+    # L
+    "Laura", "Lech", "Lena", "Leon", "Leszek", "Lidia", "Liliana", "Lucyna", "Ludwik", 
+    # Ł
+    "Łucja", "Łukasz", 
+    # M
+    "Maciej", "Magdalena", "Maja", "Maksymilian", "Małgorzata", "Marcin", "Marek", 
+    "Maria", "Marianna", "Mariola", "Mariusz", "Marta", "Martyna", "Mateusz", "Michał", 
+    "Mikołaj", "Milena", "Mirosław", "Monika", 
+    # N
+    "Natalia", "Nikodem", "Nikola", "Nina", "Norbert", 
+    # O
+    "Olaf", "Olga", "Oliwia", "Oskar", 
+    # P
+    "Patrycja", "Patryk", "Paulina", "Paweł", "Piotr", "Przemysław", 
+    # R
+    "Radosław", "Rafał", "Remigiusz", "Renata", "Robert", "Roksana", "Roman", "Ryszard", 
+    # S
+    "Sandra", "Sebastian", "Seweryn", "Sławomir", "Stanisław", "Stefan", "Sylwia", "Szymon", 
+    # T
+    "Tadeusz", "Tatiana", "Teresa", "Tomasz", "Tymon", "Tymoteusz", 
+    # U
+    "Urszula", 
+    # W
+    "Wacław", "Waldemar", "Weronika", "Wiesław", "Wiktoria", "Witold", "Władysław", "Wojciech", 
+    # Z
+    "Zbigniew", "Zdzisław", "Zenon", "Zofia", "Zuzanna", "Zygmunt", 
+    # Ż
+    "Żaneta"
+    ]
+    
+
+    # array with common Polish last names
+    last_names = [
+        # A
+        "Adamczyk", "Adamski", "Andrzejewski", "Augustyniak",
+        # B
+        "Baran", "Bąk", "Bednarek", "Białek", "Błaszczyk", "Borkowski", "Borowski", "Brzeziński", "Budzyński", "Bukowski",
+        # C
+        "Chmielewski", "Chojnacki", "Cieślak", "Cybulski", "Czajkowski", "Czarnecki", "Czerwiński",
+        # Ć
+        "Ćwik", "Ćwikliński",
+        # D
+        "Dąbrowski", "Dudek", "Duda", "Dziedzic", "Domański", "Drozd",
+        # E
+        "Ejsmont", "Eljasz",
+        # F
+        "Falkowski", "Fijałkowski", "Filipiak", "Frankowski", "Frąckowiak",
+        # G
+        "Gajewski", "Głowacki", "Godlewski", "Gołębiewski", "Górski", "Grabowski", "Grudzień", "Grzyb",
+        # H
+        "Hajduk", "Herman", "Hoffmann",
+        # I
+        "Idzikowski", "Ignaczak", "Iwanowski", "Izdebski",
+        # J
+        "Jabłoński", "Jackowski", "Jagiełło", "Jakubowski", "Jankowski", "Janowski", "Jarosz", "Jasiński", "Jaworski", "Jezierski",
+        # K
+        "Kaczmarek", "Kaczor", "Kalinowski", "Kamiński", "Kania", "Karpiński", "Kaźmierczak", "Klimczak", "Kołodziej", "Konieczny", "Kowalski", "Kowalczyk", "Kozłowski", "Krajewski", "Krawczyk", "Król", "Krupa", "Kubiak", "Kucharski", "Kwiatkowski",
+        # L
+        "Laskowski", "Lipiński", "Lis", "Lewandowski",
+        # Ł
+        "Łapiński", "Łuczak", "Łukasik",
+        # M
+        "Maciejewski", "Maj", "Majchrzak", "Majewski", "Makowski", "Malinowski", "Małecki", "Marciniak", "Markowski", "Marszałek", "Matusiak", "Mazur", "Mazurek", "Michalak", "Michalski", "Milewski", "Miller", "Mroczek", "Mróz", "Musiał",
+        # N
+        "Nawrocki", "Niemiec", "Nowak", "Nowakowski", "Nowicki",
+        # O
+        "Olech", "Olszewski", "Orłowski", "Osowski", "Ostrowski",
+        # P
+        "Pająk", "Paluch", "Panek", "Partyka", "Pawlak", "Pawłowski", "Piątek", "Pietrzak", "Piotrowski", "Piwowarczyk", "Przybylski",
+        # R
+        "Raczyński", "Radomski", "Rak", "Romanowski", "Rudnicki", "Rutkowski", "Rybak",
+        # S
+        "Sadowski", "Sawicki", "Sikora", "Sikorski", "Skiba", "Skowroński", "Sobczak", "Sobolewski", "Socha", "Sokołowski", "Sosnowski", "Sroka", "Stachowiak", "Stasiak", "Stankiewicz", "Stefański", "Stępień", "Szczepański", "Szewczyk", "Szulc", "Szymczak", "Szymański",
+        # Ś
+        "Śliwiński", "Ślusarczyk", "Świderski", "Świętek",
+        # T
+        "Tarnowski", "Tkaczyk", "Tomaszewski", "Tomczak", "Tomczyk", "Trojanowski", "Turek",
+        # U
+        "Urban", "Urbański", "Urbaniak",
+        # W
+        "Walczak", "Walkowiak", "Wasilewski", "Wawrzyniak", "Wesołowski", "Wieczorek", "Wierzbicki", "Wilk", "Winiarski", "Wiśniewski", "Witkowski", "Włodarczyk", "Wojciechowski", "Wolski", "Woźniak", "Wójcik", "Wróbel", "Wróblewski", "Wysocki",
+        # Z
+        "Zaborowski", "Zając", "Zakrzewski", "Zalewski", "Zawadzki", "Zaręba", "Zduńczyk", "Zieliński", "Ziółkowski", "Zych",
+        # Ż
+        "Żebrowski", "Żuk", "Żukowski", "Żurawski", "Żurek",
+        # Ź
+        "Źródłowski" 
+    ]
+
+    # array with sex
+    sexs = ["Male","Female"]
+    
+    # ask user for number of people to generate
+    times = int(input("Enter how many people you want to generate > "))
+    
+    
+    a = 0
+
+    # generate random people
+    for i in range(0, times): 
+
+        a += 1
+
+        # get random age
+        age = int((random.randrange(0,100)))
+        
+        # choose random text from representiv arrays
+        name = random.choice(names)
+        last_name = random.choice(last_names)
+        sex = random.choice(sexs)
+
+        # gets random month
+        month = int((random.randrange(1, 13))) 
+        
+        # determine max day based on month
+        if month == 2:
+            max_day = 29 
+        elif month in [4, 6, 9, 11]:
+            max_day = 30
+        else:
+            max_day = 31
+        
+        day = int((random.randrange(1, max_day + 1))) 
+
+        #determine year based on age from current year 2025
+        year = 2025
+        year -= age
+        
+        print(f"{a}: NAME: {name} {last_name} SEX: {sex} YEAR: {day:02d}.{month:02d}.{year}  AGE: {age}")
+        print()
+    
+    # when done, wait for user to press ENTER
+    print("--------------------------------")
+    input ("press ENTER to continue")
+    # clear screen
+    clear()
+    # return to menu
+    print_menu()
+    msvcrt.getch()
+
+
+clear()
+
+# function for menu
+def print_menu():
+    position = 0
+    print(" <Generate> EXIT ")
+    while True:
+
+        key = msvcrt.getch()
+
+        # find key input
+        if key == b'\xe0':
+            key2 = msvcrt.getch()
+
+            match key2:
+                case b'M': # right arrow
+                    position += 1
+                    clear()
+                case b'K': # left arrow
+                    position -= 1
+                    clear()
+                case _: # invalid option
+                    clear()
+                    print("invalid option")
+                    time.sleep(1)
+        # if position overflows
+        if position < 0:
+            position = 1
+        elif position > 1:
+            position = 0
+
+        # print menu with current position
+        match position:
+            case 0:
+                print (" <Generate> EXIT ")
+            case 1:
+                print ("  Generate <EXIT> ")
+    
+        # if ENTER is pressed
+        if key == b'\r':
+
+            # send to funktion names()
+            if position == 0:
+                clear()
+                names()
+            # exit program
+            elif position == 1:
+                clear()
+                sys.exit()
+ 
+
+# start of the program
+print_menu()
             </pre>
         </div>
     </div>
