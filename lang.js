@@ -55,8 +55,7 @@ interest` },
     py_2: { pl: `to jest mój drugi język.` , en: `this is my second language.` },
     py_3: { pl: `Uczę się obsługi biblioteki pybind11 w celu połączenia PY z C++.` , en: `I am learning the pybind11 library to connect PY to C++.` },
 
-    about_me_1: { pl: `Jestem samoukiem, który robi duże postępy w swojej karierze.`
-        , en: `I am self-taught and making great progress in my career.` },
+    about_me_1: { pl: `Jestem samoukiem, który robi duże postępy w swojej karierze.`, en: `I am self-taught and making great progress in my career.` },
 
     about_me_2: { pl: `Moim głównym językiem jest C++, ale znam zarówno Pythona, jak i języki programowania stron internetowych.`
         , en: `My primary language is C++, but I know both Python and web development languages.` },
