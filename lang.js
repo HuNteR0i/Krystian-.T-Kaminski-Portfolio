@@ -16,8 +16,8 @@ rand_name: { pl: `Losowe nazwy:
 Ten program losowo wybiera nazwy z listy.`, en: `Random Names:
 This program randomly selects names from a list.` },
 
-    name: { pl: `Imię: Hunter`, 
-en: `NAME: Hunter` },
+    name: { pl: `Imię: Krystian T. Kaminski`, 
+en: `NAME: Krystian T. Kaminski` },
     
     birthdate: { pl: `Data urodzenia:
 06/12/09`, 
