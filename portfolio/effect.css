@@ -1,0 +1,152 @@
+/* ==================================================
+   GLITCH EFFECT
+================================================== */
+
+#menu div.glitch {
+    animation: glitch-div 0.12s infinite;
+    box-shadow: -3px 0 rgb(55, 255, 0),
+                3px 0 rgb(255, 0, 0);
+}
+
+@keyframes glitch-div {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-15px, 2px); }
+    40% { transform: translate(10px, -1px); }
+    60% { transform: translate(0, -4px); }
+    80% { transform: translate(25px, 4px); }
+    100% { transform: translate(0, 0); }
+}
+
+#menu div.glitch p {
+    animation: glitch-text 1s infinite;
+    text-shadow: -2px 0 rgb(255, 0, 234),
+                 2px 0 rgb(23, 189, 8);
+}
+
+@keyframes glitch-text {
+    0% { transform: translate(0, 0); }
+    30% { transform: translate(-20px, 1px); }
+    60% { transform: translate(30px, 1px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* ==================================================
+   LIGHT MODE
+================================================== */
+
+body.light-mode {
+    background-color: #bcbcbc;
+    color: #222;
+}
+
+body.light-mode #setting {
+    background-image: url(img/lightmodes.png);
+    background-color: black;
+}
+
+/* header / footer */
+
+body.light-mode header,
+body.light-mode footer {
+    background-color: #e0e0e0;
+    color: #333;
+    border-color: #ccc;
+}
+
+/* menu */
+
+body.light-mode #menu {
+    background-color: #fff;
+    border-color: #bbb;
+}
+
+body.light-mode #menu div p {
+    background-color: #e9e9e9;
+    color: rgb(100, 240, 210);
+    border-color: #888;
+}
+
+/* text */
+
+body.light-mode #text {
+    background-color: #fff;
+    color: #000;
+}
+
+/* footer menu */
+
+body.light-mode #footer_menu {
+    background-color: #fff;
+    border-color: #8c8c8c;
+    color: #000;
+}
+
+/* light gifs */
+
+body.light-mode #div_py::before {
+    background-image: url(img/light_py_gif.gif);
+    border-color: #888;
+    background-color: white;
+}
+
+body.light-mode #div_cpp::before {
+    background-image: url(img/light_cpp_gif.gif);
+    border-color: #888;
+    background-color: white;
+}
+
+body.light-mode #div_webb::before {
+    background-image: url(img/light_html_gif.gif);
+    border-color: #888;
+    background-color: white;
+}
+
+/* progress light mode */
+
+body.light-mode .dev-progress {
+    background: white;
+    color: black;
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.785);
+}
+
+body.light-mode .skill progress,
+body.light-mode .level-bar progress {
+    background: white;
+}
+
+body.light-mode .skill progress::-webkit-progress-bar,
+body.light-mode .level-bar progress::-webkit-progress-bar {
+    background: white;
+}
+
+body.light-mode .level-bar {
+    color: black;
+}
+
+/* code light mode */
+
+body.light-mode #text_code {
+    background: white;
+    color: black;
+}
+
+body.light-mode .code_block {
+    background-color: #bbb;
+    color: black;
+}
+
+body.light-mode #skills {
+    background-color: #ddd;
+}
+
+body.light-mode .skill-btn {
+    background: white;
+    color: #64f0d2;
+    border-color: #888;
+}
+
+body.light-mode .skill-btn.active {
+    background: #64f0d2;
+    color: white;
+    border-color: #888;
+}

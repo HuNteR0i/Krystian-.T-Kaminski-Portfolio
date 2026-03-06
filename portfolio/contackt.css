@@ -1,0 +1,19 @@
+#contackt_background {
+    justify-items: center;
+    align-content: center;
+    height: 75vh;
+    width: 100%;
+    background-color: white;
+}
+
+#contackt_container {
+    height: 70%;
+    width: 40%;
+    background-color: grey;
+    grid-row: auto;
+}
+
+#email {
+    width: 85%;
+    height: 40px;
+}

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;600&display=swap');
+
+/* ==================================================
+   GLOBAL / RESET
+================================================== */
+
+* {
+    box-sizing: border-box;
+    transition: 1s;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(128, 123, 123);
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
+}
+
+/* global fonts */
+
+.code_block,
+#text_code,
+pre {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+#menu div p {
+    font-family: 'Orbitron', sans-serif;
+}

@@ -1,0 +1,35 @@
+/* ==================================================
+   SETTINGS / LANGUAGE BUTTONS
+================================================== */
+
+#setting {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-color: white;
+    background-image: url(img/lightmodes.png);
+    background-size: cover;
+    background-position: center;
+    color-scheme: dark;
+}
+
+#lang_butns {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+.lang {
+    border-radius: 15px;
+    background-color: #66c6b2;
+    border: 5px solid black;
+    box-shadow: 0 0 10px rgb(58, 227, 190);
+    cursor: pointer;
+}

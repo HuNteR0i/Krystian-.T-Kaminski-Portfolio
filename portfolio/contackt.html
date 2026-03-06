@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="contackt.css"/>
+  <link rel="stylesheet" href="text.css"/>
+  <link rel="stylesheet" href="global.css"/>
+  <link rel="stylesheet" href="menu.css"/>
+  <link rel="stylesheet" href="settings.css"/>
+  <link rel="stylesheet" href="effect.css"/>
+  <link rel="stylesheet" href="skill.css"/>
+
+  <title>Contact</title>
+</head>
+
+<body>
+
+<header class="head_foot">
+
+  <div id="lang_butns">
+      <button class="lang" id="btn_pl">PL</button>
+      <button class="lang" id="btn_en">EN</button>
+  </div>
+
+  <nav id="menu">
+    <a href="skill.html">
+      <div id="div_skill">
+        <p>SKILL</p>
+      </div>
+    </a>
+
+    <a href="cpp.html">
+      <div id="div_cpp">
+        <p data-text="cpp">cout &lt;&lt; "C++";</p>
+      </div>
+    </a>
+
+    <a href="py.html">
+      <div id="div_py">
+        <p data-text="py">print("PY")</p>
+      </div>
+    </a>
+
+    <a href="webb.html">
+      <div id="div_webb">
+        <p data-text="html">HTML</p>
+      </div>
+    </a>
+  </nav>
+
+</header>
+
+
+<div id="contackt_background">
+
+  <div id="contackt_container">
+
+    <form id="contact-form">
+
+      <input
+        type="text"
+        name="from_name"
+        placeholder="Your name"
+        required
+      >
+
+      <input
+        type="email"
+        name="reply_to"
+        placeholder="Your email"
+        required
+      >
+
+      <textarea
+        name="message"
+        placeholder="Twoja wiadomość"
+        required
+      ></textarea>
+
+      <button type="submit">
+        Wyślij email
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<footer class="head_foot">
+
+  <nav id="footer_menu">
+      <p>&copy; Krystian T. Kaminski 2026</p>
+      <p>CONTACT:</p>
+      <p>Phone: 321908073</p>
+  </nav>
+
+</footer>
+
+
+<!-- EmailJS library -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+
+(function(){
+  emailjs.init("JVP4sBT2HRf9G4hFH");
+})();
+
+document
+.getElementById("contact-form")
+.addEventListener("submit", function(event){
+
+  event.preventDefault();
+
+  emailjs.sendForm(
+    "service_f2kot8m",
+    "template_qmvfkx9",
+    this
+  )
+  .then(function(){
+
+    alert("Email sent successfully!");
+
+  }, function(error){
+
+    alert("Failed to send email: " + error.text);
+
+  });
+
+});
+
+</script>
+
+<script src="lang.js"></script>
+
+</body>
+</html>
