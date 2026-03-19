@@ -19,6 +19,11 @@
 <header class="head_foot">
 
   <div id="lang_butns">
+    <button class="lang" id="btn_pl">PL</button>
+    <button class="lang" id="btn_en">EN</button>
+  </div>
+
+  <div id="lang_butns">
       <button class="lang" id="btn_pl">PL</button>
       <button class="lang" id="btn_en">EN</button>
   </div>
@@ -29,6 +34,12 @@
         <p>SKILL</p>
       </div>
     </a>
+
+    <a href="index.html">
+      <div id="div_home">
+          <p data-text="home">HOME</p>
+      </div> 
+  </a>
 
     <a href="cpp.html">
       <div id="div_cpp">
@@ -59,6 +70,7 @@
     <form id="contact-form">
 
       <input
+        id="from_name"
         type="text"
         name="from_name"
         placeholder="Your name"
@@ -66,6 +78,7 @@
       >
 
       <input
+        id="reply_to"
         type="email"
         name="reply_to"
         placeholder="Your email"
@@ -73,12 +86,13 @@
       >
 
       <textarea
+        id="message"
         name="message"
         placeholder="Twoja wiadomość"
         required
       ></textarea>
 
-      <button type="submit">
+      <button type="submit" id="send_button">
         Wyślij email
       </button>
 
