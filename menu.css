@@ -4,7 +4,7 @@
 
 #menu {
     width: 100%;
-    height: auto; /* Zmieniono na auto, aby dostosować wysokość do zawartości */
+    height: auto;
     display: flex;
     flex-wrap: wrap; /* Pozwala elementom zawijać się w nowy wiersz */
     align-items: center;
@@ -50,7 +50,7 @@
     background-color: rgb(50, 50, 50);
     border: 10px solid rgb(35, 35, 35);
     border-radius: 20px;
-    margin-top: 20px;
+    margin: 30px;
 }
 /* ==================================================
    LAYOUT / CONTAINERS
@@ -60,6 +60,7 @@
 
 .container,
 #skill_container {
+    height: 90%s;
     display: flex;
     justify-content: space-between;
     margin: 15px;

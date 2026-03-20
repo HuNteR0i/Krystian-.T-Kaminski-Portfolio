@@ -54,3 +54,17 @@
     cursor: pointer;
     font-size: 16px;
 }
+
+
+
+/* =========  LIGHT MODE FOR CONTACT  ====================*/
+
+body.light-mode #contackt_container {
+    background-color: white;
+    border-color: #888;
+    box-shadow: 0 0 50px rgba(0, 255, 200, 0.785);
+}
+
+body.light-mode #contact-form input, body.light-mode #contact-form textarea {
+    border-color: #888;
+}
