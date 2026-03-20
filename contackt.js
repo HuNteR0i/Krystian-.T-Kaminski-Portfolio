@@ -10,7 +10,7 @@ document.getElementById("contact-form").addEventListener("submit", function(even
             alert("Email sent successfully!"); 
             setTimeout(function(){
                 window.location.href = "index.html";
-            }, 3000);
+            }, 1000);
             
 
         },
