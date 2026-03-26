@@ -127,6 +127,18 @@
     opacity: 0;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    padding: 10px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px; /* Maksymalna szerokość dla dużych ekranów */
+}
+
 
 /* ==================================================
    CONTACKT
@@ -147,15 +159,19 @@
 ================================================== */
 
 
-/* Styl dla ekranów o szerokości maksymalnej 600px (np. telefony komórkowe) */
 @media (max-width: 600px) {
-
-    #menu div {
-        flex: 1 1 100%; /* Każdy div zajmuje całą szerokość ekranu */
+    #menu {
+        flex-direction: column; /* Ustaw menu w kolumnie */
     }
 
     #menu div p {
-        padding: 100px; /* Dodanie odstępów wewnętrznych */
+        font-size: 14px; /* Zmniejsz rozmiar czcionki */
+        padding: 10px; /* Zmniejsz odstępy */
+    }
+
+    #footer_menu {
+        flex-direction: column; /* Ustaw stopkę w kolumnie */
+        gap: 20px; /* Zmniejsz odstępy między elementami */
     }
 }
 
@@ -167,3 +183,28 @@
     }
 }
 
+@media (max-width: 600px) {
+    #contackt_container {
+        width: 90%; /* Zmniejsz szerokość kontenera */
+        height: auto; /* Automatyczna wysokość */
+        padding: 20px;
+    }
+
+    #contact-form input, #contact-form textarea {
+        font-size: 14px; /* Mniejszy tekst */
+        padding: 8px;
+    }
+
+    #send_button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    #footer_menu {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
