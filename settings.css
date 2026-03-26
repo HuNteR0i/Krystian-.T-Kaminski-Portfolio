@@ -33,3 +33,19 @@
     box-shadow: 0 0 10px rgb(58, 227, 190);
     cursor: pointer;
 }
+
+
+
+@media (max-width: 600px) {
+    #setting {
+        position:fixed;
+    }
+
+    #lang_butns {
+        position: fixed;
+    }
+
+    .lang {
+        position: fixed;
+    }
+}
