@@ -208,3 +208,18 @@ img {
         gap: 10px;
     }
 }
+
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+    #info {
+        width: 75% !important;
+    }
+    #info_text {
+        width: 75% !important;
+    }
+}
