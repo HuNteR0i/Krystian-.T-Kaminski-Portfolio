@@ -5,8 +5,8 @@
 #menu {
     width: 100%;
     height: auto;
-    display: flex;
-    flex-wrap: wrap; /* Pozwala elementom zawijać się w nowy wiersz */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     align-items: center;
     justify-content: space-around;
     background-color: rgb(50, 50, 50);
@@ -42,15 +42,15 @@
 
 #footer_menu {
     width: 100%;
-    height: 100px;
-    display: flex;  
+    height: 175px;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
     justify-content: center;
     align-items: center;
     gap: 45px;
     background-color: rgb(50, 50, 50);
     border: 10px solid rgb(35, 35, 35);
     border-radius: 20px;
-    margin: 30px;
 }
 /* ==================================================
    LAYOUT / CONTAINERS
@@ -170,7 +170,7 @@ img {
     }
 
     #footer_menu {
-        flex-direction: column; /* Ustaw stopkę w kolumnie */
+        grid-template-columns: 2fr 1fr;
         gap: 20px; /* Zmniejsz odstępy między elementami */
     }
 }
