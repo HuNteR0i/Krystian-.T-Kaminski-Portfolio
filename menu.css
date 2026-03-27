@@ -34,8 +34,9 @@ MENU
     text-align: center;
     box-sizing: border-box;
     box-shadow: 0 0 20px #64f0d2;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
     word-break: break-word;
+    white-space: normal;
     }
     
     /* ==================================================
@@ -164,8 +165,10 @@ MENU
     }
     
     #menu div p {
-        font-size: 14px;
+        font-size: 13px;
         padding: 10px;
+        letter-spacing: 0.5px;
+        line-height: 1.2;
     }
     
     #footer_menu {
