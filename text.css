@@ -86,7 +86,7 @@ footer {
 #info {
     background-color: #71c2b0;
     width: 30%;
-    height: 600px !important;
+    height: 600px;
     border: 5px solid black;
     box-shadow: 0 0 20px rgb(48, 239, 197);
     font-size: 25px;
