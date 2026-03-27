@@ -1,32 +1,4 @@
 /* ==================================================
-   INFO PANEL
-================================================== */
-
-#info {
-    background-color: #71c2b0;
-    width: 30%;
-    border: 5px solid black;
-    box-shadow: 0 0 20px rgb(48, 239, 197);
-    font-size: 25px;
-    border-radius: 0 0 20px 20px;
-}
-
-#info img {
-    width: 100%;
-}
-
-#info_list {
-    border-top: 7px solid black;
-}
-
-#info_li {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-}
-
-
-/* ==================================================
    SKILLS / PROGRESS BARS
 ================================================== */
 
