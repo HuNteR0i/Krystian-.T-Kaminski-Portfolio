@@ -1,0 +1,116 @@
+/* ==================================================
+   RESPONSIVENESS
+================================================== */
+
+@media (max-width: 600px) {
+    #menu {
+        flex-direction: column;
+    }
+
+    #menu div p {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #footer_menu {
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contackt_container {
+        width: 90%;
+        height: 80%;
+        padding: 20px;
+    }
+
+    #contact-form input, #contact-form textarea {
+        font-size: 140px;
+        padding: 8px;
+        display: none;
+    }
+
+    #send_button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    #footer_menu {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+    #info {
+        width: 75% !important;
+    }
+    #info_text {
+        width: 75% !important;
+    }
+    #text {
+        height: 100% !important;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    #menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #menu div p {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    #info, #text {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    #footer_menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    #setting {
+        position: fixed;
+    }
+
+    #lang_butns {
+        position: fixed;
+    }
+}
+
+@media (max-width: 1024px) {
+    #menu {
+        flex-wrap: wrap;
+    }
+
+    #info, #text {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1200px) {
+    #menu div p {
+        font-size: 20px;
+        padding: 15px;
+    }
+}
