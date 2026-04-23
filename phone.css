@@ -4,12 +4,12 @@
 
 @media (max-width: 600px) {
     #menu {
-        flex-direction: column;
+        display: grid;
     }
 
     #menu div p {
         font-size: 14px;
-        padding: 10px;
+
     }
 
     #footer_menu {
